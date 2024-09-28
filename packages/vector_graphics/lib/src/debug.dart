@@ -4,4 +4,4 @@
 
 export '_debug_io.dart'
     if (dart.library.html) '_debug_web.dart'
-    if (dart.library.web) '_debug_web.dart';
+    if (dart.library.js_interop) '_debug_web.dart';

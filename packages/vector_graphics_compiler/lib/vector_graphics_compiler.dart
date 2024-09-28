@@ -5,35 +5,35 @@
 import 'dart:typed_data';
 
 import 'package:vector_graphics_codec/vector_graphics_codec.dart';
-import 'src/geometry/pattern.dart';
-import 'src/geometry/matrix.dart';
+
 import 'src/geometry/image.dart';
-import 'src/geometry/vertices.dart';
+import 'src/geometry/matrix.dart';
 import 'src/geometry/path.dart';
+import 'src/geometry/pattern.dart';
+import 'src/geometry/vertices.dart';
 import 'src/paint.dart';
 import 'src/svg/color_mapper.dart';
-import 'src/svg/theme.dart';
 import 'src/svg/parser.dart';
+import 'src/svg/theme.dart';
 import 'src/vector_instructions.dart';
 
+export 'src/_initialize_path_ops_io.dart'
+    if (dart.library.html) 'src/_initialize_path_ops_web.dart'
+    if (dart.library.js_interop) 'src/_initialize_path_ops_web.dart';
+export 'src/_initialize_tessellator_io.dart'
+    if (dart.library.html) 'src/_initialize_tessellator_web.dart'
+    if (dart.library.js_interop) 'src/_initialize_tessellator_web.dart';
 export 'src/geometry/basic_types.dart';
 export 'src/geometry/matrix.dart';
 export 'src/geometry/path.dart';
 export 'src/geometry/vertices.dart';
 export 'src/paint.dart';
 export 'src/svg/color_mapper.dart';
-export 'src/svg/theme.dart';
-export 'src/svg/resolver.dart';
-export 'src/vector_instructions.dart';
-export 'src/svg/tessellator.dart' show initializeLibTesselator;
 export 'src/svg/path_ops.dart' show initializeLibPathOps;
-
-export 'src/_initialize_tessellator_io.dart'
-    if (dart.library.html) 'src/_initialize_tessellator_web.dart'
-    if (dart.library.web) 'src/_initialize_tessellator_web.dart';
-export 'src/_initialize_path_ops_io.dart'
-    if (dart.library.html) 'src/_initialize_path_ops_web.dart'
-    if (dart.library.web) 'src/_initialize_path_ops_web.dart';
+export 'src/svg/resolver.dart';
+export 'src/svg/tessellator.dart' show initializeLibTesselator;
+export 'src/svg/theme.dart';
+export 'src/vector_instructions.dart';
 
 /// Parses an SVG string into a [VectorInstructions] object, with all optional
 /// optimizers disabled.
